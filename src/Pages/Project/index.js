@@ -15,12 +15,12 @@ export default class Project extends Component {
     }
     
     render() {
-        console.log(this.props)
         
+        const {match :{ params: { projectId}} } = this.props; 
         return (
             <div>
                 <h2>Project</h2>
-                <h3>Id: {this.props.match.params.projectId}</h3>
+                <h3>Id: {projectId}</h3>
             </div>
         );
     }
