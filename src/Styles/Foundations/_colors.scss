@@ -1,0 +1,35 @@
+// A DEFINIR
+$color-map: (
+  white: (
+    base: #EBF4F3,
+    light-1: #ffffff
+  ),
+  black: (
+    base: #212223,
+    light: #747476,
+    dark: #000000,
+    medium: #525456,
+  )
+
+
+
+);
+
+@function color($hue, $value: base) {
+  $fetched-color: map-get(map-get($color-map, $hue), $value);
+
+  @if map-has-key($color-map, $fetched-color) {
+    $fetched-color: map-get(map-get($color-map, $fetched-color), $value);
+  }
+
+  @if type-of($fetched-color) == color {
+    @return $fetched-color;
+  } @else {
+    @error 'Color `#{$hue} - #{$value}` not found. Available colors: #{available-names($color-map)}';
+  }
+}
+
+@function rgbaColor($color, $alpha: 0) {
+  $full-color: $color;
+  @return rgba($full-color, $alpha);
+}

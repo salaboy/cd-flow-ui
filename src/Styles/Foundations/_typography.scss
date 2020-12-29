@@ -1,0 +1,88 @@
+//FONT SIZE
+$basicFontSize: 22px;
+
+//TYPE
+$font-family-map: (
+  base: #{'Helvetica, Arial', serif},
+  display: #{'Helvetica, Arial', serif}
+);
+
+$font-size-map: (
+  base: rem(24px),
+  s: rem(18px),
+  xs: rem(14px),
+  mb: rem(36px),
+  b: rem(72px),
+
+);
+
+$line-height-map: (
+  base: rem(36px),
+  s: rem(24px),
+  xs: rem(18px),
+  mb: rem(42px),
+  b: rem(72px),
+
+);
+
+$heading-font-size-map: (
+  h1: rem(120px),
+  h2: rem(72px),
+  h3: rem(28px)
+
+);
+
+$heading-line-height-map: (
+  h1: rem(120px),
+  h2: rem(72px),
+  h3: rem(32px)
+
+);
+
+@function font-size($size: base) {
+  $fetched-value: map-get($font-size-map, $size);
+
+  @if $fetched-value != null {
+    @return $fetched-value;
+  } @else {
+    @error 'Font size `#{$size}` not found. Available font sizes: #{available-names($font-size-map)}';
+  }
+}
+@function line-height($size: base) {
+  $fetched-value: map-get($line-height-map, $size);
+
+  @if $fetched-value != null {
+    @return $fetched-value;
+  } @else {
+    @error 'Font size `#{$size}` not found. Available font sizes: #{available-names($font-size-map)}';
+  }
+}
+
+@function font-family($family: base) {
+  $fetched-value: map-get($font-family-map, $family);
+
+  @if $fetched-value != null {
+    @return $fetched-value;
+  } @else {
+    @error 'Font family `#{$family}` not found. Available font families: #{available-names($font-family-map)}';
+  }
+}
+
+@function heading-font-size($heading: h3) {
+  $fetched-value: map-get($heading-font-size-map, $heading);
+
+  @if $fetched-value != null {
+    @return $fetched-value;
+  } @else {
+    @error 'Heading Font size `#{$heading}` not found. Available heading font sizes: #{available-names($heading-font-size-map)}';
+  }
+}
+@function heading-line-height($heading: h3) {
+  $fetched-value: map-get($heading-line-height-map, $heading);
+
+  @if $fetched-value != null {
+    @return $fetched-value;
+  } @else {
+    @error 'Heading line height `#{$heading}` not found. Available heading line heights: #{available-names($heading-line-height-map)}';
+  }
+}

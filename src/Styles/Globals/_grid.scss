@@ -1,0 +1,197 @@
+//GRID
+@import '../_foundations.scss';
+//container responsive widths
+$containerDesktopHD: 1152px;
+$containerDesktop: 1152px;
+$containerTablet: 100%;
+$containerMobile: 100%;
+
+// This is mixin which you will include in parent
+// of columns. It kills default margin of inline-block
+// elements.
+@mixin row() {
+  margin: 0 auto;
+  max-width: $containerDesktopHD;
+  font-size: 0;
+
+  //Desktop Small
+  @media only screen and (max-width: breakpoint(desktopHD)) {
+    max-width: $containerDesktop;
+  }
+  //Tablet HD
+  @media only screen and (max-width: breakpoint(desktopSD)) {
+    max-width: $containerTablet;
+    padding: 0 spacing(6);
+  }
+
+  //Tablet SD
+  @media only screen and (max-width: breakpoint(tabletHD)) {
+    max-width: $containerTablet;
+    padding: 0 spacing(5);
+  }
+  //Mobile
+  @media only screen and (max-width: breakpoint(tabletSD)) {
+    max-width: $containerMobile;
+    padding: 0 spacing(3);
+  }
+  //Mobile
+  @media only screen and (max-width: breakpoint(mobileHD)) {
+    max-width: $containerMobile;
+    padding: 0 spacing(1);
+  }
+}
+
+// This is column mixins.
+@mixin col($col, $sum, $gap: 12px, $align: top) {
+  width: percentage($col/$sum);
+  display: inline-block;
+  font-size: font-size();
+  padding-left: $gap;
+  padding-right: $gap;
+  vertical-align: $align;
+  position: relative;
+
+  //desktopSD
+  @media only screen and (max-width: breakpoint(desktopSD)) {
+  }
+  //tabletHD
+  @media only screen and (max-width: breakpoint(tabletHD)) {
+  }
+  //Mobile
+  @media only screen and (max-width: breakpoint(mobileHD)) {
+  }
+}
+.container {
+  @include row;
+}
+
+.col {
+  &.col-one {
+    @include col(1, 12, $align: top);
+  }
+  &.col-two {
+    @include col(2, 12, $align: top);
+  }
+  &.col-three {
+    @include col(3, 12, $align: top);
+  }
+  &.col-four {
+    @include col(4, 12, $align: top);
+  }
+  &.col-five {
+    @include col(5, 12, $align: top);
+  }
+  &.col-six {
+    @include col(6, 12, $align: top);
+  }
+  &.col-seven {
+    @include col(7, 12, $align: top);
+  }
+  &.col-eight {
+    @include col(8, 12, $align: top);
+  }
+  &.col-nine {
+    @include col(9, 12, $align: top);
+  }
+  &.col-ten {
+    @include col(10, 12, $align: top);
+  }
+  &.col-eleven {
+    @include col(11, 12, $align: top);
+  }
+  &.col-twelve {
+    @include col(12, 12, $align: top);
+  }
+  &.col-sd-six {
+    @media only screen and (max-width: breakpoint(desktopSD)) {
+      @include col(6, 12, $align: top);
+    }
+  }
+  &.col-sd-nine {
+    @media only screen and (max-width: breakpoint(desktopSD)) {
+      @include col(9, 12, $align: top);
+    }
+  }
+  &.col-sd-twelve {
+    @media only screen and (max-width: breakpoint(desktopSD)) {
+      @include col(12, 12, $align: top);
+    }
+  }
+  &.col-t-six {
+    @media only screen and (max-width: breakpoint(tabletHD)) {
+      @include col(6, 12, $align: top);
+    }
+  }
+  &.col-t-nine {
+    @media only screen and (max-width: breakpoint(tabletHD)) {
+      @include col(9, 12, $align: top);
+    }
+  }
+  &.col-t-twelve {
+    @media only screen and (max-width: breakpoint(tabletHD)) {
+      @include col(12, 12, $align: top);
+    }
+  }
+  &.col-m-three {
+    @media only screen and (max-width: breakpoint(tabletSD)) {
+      @include col(3, 12, $align: top);
+    }
+  }
+  &.col-m-six {
+    @media only screen and (max-width: breakpoint(tabletSD)) {
+      @include col(6, 12, $align: top);
+    }
+  }
+  &.col-m-twelve {
+    @media only screen and (max-width: breakpoint(tabletSD)) {
+      margin: spacing(5) 0;
+      @include col(12, 12, $align: top);
+    }
+  }
+  &.col-only-desktop-hd {
+    @media only screen and (max-width: breakpoint(desktopSD)) {
+      display: none;
+    }
+  }
+  &.col-only-desktop {
+    @media only screen and (max-width: breakpoint(tabletHD)) {
+      display: none;
+    }
+  }
+  &.col-not-mobile {
+    @media only screen and (max-width: breakpoint(tabletSD)) {
+      display: none;
+    }
+  }
+  &.col-center {
+    text-align: center;
+    p {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 spacing(4);
+    }
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      max-width: 100% !important;
+    }
+  }
+  &.col-right {
+    text-align: right;
+  }
+  &.col-padded {
+    padding-bottom: spacing(6);
+    @media only screen and (max-width: breakpoint(tabletHD)) {
+      padding-bottom: spacing(6);
+    }
+  }
+  &.col-not-padded {
+    @media only screen and (max-width: breakpoint(tabletSD)) {
+      margin: 0 !important;
+    }
+  }
+}
