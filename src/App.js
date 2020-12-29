@@ -1,13 +1,13 @@
 import './App.scss';
 import React from "react";
 import Projects from './Pages/Projects'
+import Project from './Pages/Project'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   useParams,
-  useRouteMatch
 } from "react-router-dom";
 
 export default function App() {
@@ -42,6 +42,9 @@ export default function App() {
           <Route path="/projects">
             <Projects />
           </Route>
+          <Route path="/project/:projectId" component={Project}>
+          
+          </Route>
           <Route path="/environments">
             <Environments />
           </Route>
@@ -60,41 +63,6 @@ function Home() {
   );
 }
 
-
-
-function Project() {
-  // The <Route> that rendered this component has a
-  // path of `/projects/:projectId`. The `:projectId` portion
-  // of the URL indicates a placeholder that we can
-  // get from `useParams()`.
-  let { projectId } = useParams();
-  let { path, url } = useRouteMatch();
-
-  return (
-    <div>
-      <h3>{projectId}</h3>
-      <ul>
-        <li>
-          <Link to={`${url}/modulea`}>Module A</Link>
-        </li>
-        <li>
-          <Link to={`${url}/moduleb`}>Module B</Link>
-        </li>
-        
-      </ul>
-
-      <Switch>
-        <Route exact path={path}>
-          <h3>Please select a Module.</h3>
-        </Route>
-        <Route path={`${path}/:moduleId`}>
-          <Module />
-        </Route>
-      </Switch>
-    </div>
-    
-  );
-}
 
 function Module() {
   // The <Route> that rendered this component has a
