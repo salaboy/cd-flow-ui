@@ -17,11 +17,12 @@ const {
 
 function handleData(data){
   var jsonContent = JSON.parse(data);
-  console.log(jsonContent);
-  if (jsonContent["type"] === "sample") {
+  if (jsonContent["specversion"] === "1.0") {
     const ce = new CloudEvent(jsonContent);
-  
     console.log(ce);
+  }else{
+    console.log("Not a valid CE!");
+    console.log(jsonContent);
   }
   
 }
