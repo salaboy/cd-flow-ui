@@ -2,13 +2,30 @@ import './App.scss';
 import React from "react";
 import Projects from './Pages/Projects'
 import Project from './Pages/Project'
+import MyTerminal from './Pages/Terminal'
+import Websocket from 'react-websocket';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams,
 } from "react-router-dom";
+
+const {
+  CloudEvent,
+} = require("cloudevents");
+
+function handleData(data){
+  var jsonContent = JSON.parse(data);
+  console.log(jsonContent);
+  if (jsonContent["type"] === "sample") {
+    const ce = new CloudEvent(jsonContent);
+  
+    console.log(ce);
+  }
+  
+}
+
 
 export default function App() {
   return (
@@ -20,6 +37,9 @@ export default function App() {
           </li>
           <li>
             <Link to="/projects">Projects</Link>
+          </li>
+          <li>
+            <Link to="/terminal">Terminal</Link>
           </li>
           <li>
             <Link to="/environments">Environments</Link>
@@ -35,6 +55,8 @@ export default function App() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
+        <Websocket url='ws://localhost:8080/ws?sessionId=123'
+              onMessage={handleData.bind(this)}/>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -47,6 +69,9 @@ export default function App() {
           </Route>
           <Route path="/environments">
             <Environments />
+          </Route>
+          <Route path="/terminal">
+            <MyTerminal />
           </Route>
         </Switch>
       </div>
@@ -64,20 +89,7 @@ function Home() {
 }
 
 
-function Module() {
-  // The <Route> that rendered this component has a
-  // path of `/modules/:moduleId`. The `:moduleId` portion
-  // of the URL indicates a placeholder that we can
-  // get from `useParams()`.
-  let { moduleId } = useParams();
 
-  return (
-    <div>
-      <h3>{moduleId}</h3>
-    </div>
-  );
-
-}
 
 function Environments() {
   return (
