@@ -19,7 +19,8 @@ function handleData(data){
   var jsonContent = JSON.parse(data);
   if (jsonContent["specversion"] === "1.0") {
     const ce = new CloudEvent(jsonContent);
-    console.log(ce);
+    var data = "CloudEvent TYPE: " + ce.type + " - SOURCE: " + ce.source; 
+    console.log(data);
   }else{
     console.log("Not a valid CE!");
     console.log(jsonContent);
