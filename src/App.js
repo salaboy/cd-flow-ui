@@ -57,7 +57,7 @@ export default function App() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
-        <Websocket url='ws://localhost:8080/ws?sessionId=123'
+        <Websocket url='ws://34.91.35.40.xip.io/ws?sessionId=123'
               onMessage={handleData.bind(this)}/>
         <Switch>
           <Route exact path="/">
