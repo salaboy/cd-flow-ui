@@ -1,6 +1,7 @@
 import './App.scss';
 import React from "react";
 import Projects from './Pages/Projects'
+import Metrics from './Pages/Metrics'
 import Project from './Pages/Project'
 import MyTerminal from './Pages/Terminal'
 import Websocket from 'react-websocket';
@@ -57,6 +58,7 @@ export default function App() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
+        {/* <Websocket url='ws://localhost:8080/ws?sessionId=123' */}
         <Websocket url='ws://34.91.35.40.xip.io/ws?sessionId=123'
               onMessage={handleData.bind(this)}/>
         <Switch>
@@ -65,6 +67,7 @@ export default function App() {
           </Route>
           <Route path="/projects">
             <Projects />
+            <Metrics />
           </Route>
           <Route path="/project/:projectId" component={Project}>
           

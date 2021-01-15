@@ -8,6 +8,7 @@ export default class Projects extends Component {
     constructor(props) {
         super(props);
         this.state = { projects: [], isLoading: true };
+        // this.metrics = { metrics: [], isLoading: true}
         // this.remove = this.remove.bind(this);
     }
 
@@ -17,6 +18,8 @@ export default class Projects extends Component {
         fetch('api/projects')
             .then(response => response.json())
             .then(data => this.setState({ projects: data, isLoading: false }));
+
+      
     }
 
     render() {
@@ -82,9 +85,7 @@ export default class Projects extends Component {
         return (
           <div>
 
-                        <div className="float-right">
-                            <a href="/projects/new">Add Project</a>
-                        </div>
+                      
                         <h3>Projects</h3>
                         <table className="mt-4" border="1px" width="100%">
                             <thead>
