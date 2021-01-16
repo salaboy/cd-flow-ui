@@ -28,7 +28,7 @@ h1,
   line-height: heading-line-height(h1);
   margin: heading-line-height(h1) 0 heading-line-height(h1) / 2;
   letter-spacing: 0em;
-  font-weight: 300;
+  font-weight: 600;
   max-width: 900px;
   &:first-child {
     margin-top: 0;
@@ -50,7 +50,7 @@ h2,
   line-height: heading-line-height(h2);
   margin: heading-line-height(h2) 0 heading-line-height(h2) / 2;
   letter-spacing:0em;
-  font-weight: 300;
+  font-weight: 600;
   max-width: 780px;
   &:first-child {
     margin-top: 0;

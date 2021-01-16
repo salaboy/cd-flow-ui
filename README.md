@@ -1,76 +1,291 @@
-# Getting Started with Create React App
+# CD Flow
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple framework and binary to emit Cloud Events related to Continuous Delivery. 
 
-## Available Scripts
+The idea behind this framework and command-line interface is to empower you  emitting events related to a Continuous Delivery flow to measure performance and gain visibility of your processes. 
 
-In the project directory, you can run:
+![Concepts](cdf-flow-concepts.png)
 
-### `yarn start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Download the binary `cdf` or build from source. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Set `CDF_SINK` environment variable to define where CloudEvents will be sent. You can do this by running:
 
-### `yarn test`
+`export CDF_SINK=http://my-broker` 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Integrate with your existing pipelines, repositories, and environments. 
 
-### `yarn build`
+## Supported Events
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Use `cdf --help`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The following events are supported:
+- [Project Events]()
+  - [Module Events]()
+    - [Repository Events](https://github.com/salaboy/cd-flow/#cdf-repository-events)
+      - [Issue Events](https://github.com/salaboy/cd-flow/#cdf-issue-events)
+      - [Pull Request Events](https://github.com/salaboy/cd-flow/#pull-request-events)
+      - [Branch Events](https://github.com/salaboy/cd-flow/#cdf-branch-events)
+      - [Tag Events](https://github.com/salaboy/cd-flow/#cdf-tag-events)
+- [Environment Events](https://github.com/salaboy/cd-flow/#environment-events)
+  - [Application Events]()
+    - [Service Events](https://github.com/salaboy/cd-flow/#service-events)
+      - [Pipeline Events](https://github.com/salaboy/cd-flow/#pipeline-events)  
+        - [Artifact Events](https://github.com/salaboy/cd-flow/#artifact-events)
+        - [Container Events](https://github.com/salaboy/cd-flow/#container-events)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+- [Infrastructure Events]()  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# CDF Project Events
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Use `cdf project --help`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Base Properties
+  - Name
+ 
+### **CDF.Project.Created** Event
 
-## Learn More
+Example: `./cdf project created --name my-project` 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **CDF.Project.Deleted** Event
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Example: `./cdf project deleted --name my-project`
 
-### Code Splitting
+## CDF Module Events
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Use `cdf module --help`
 
-### Analyzing the Bundle Size
+- Base Properties
+  - Name
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## CDF Repository Events
 
-### Making a Progressive Web App
+Use `cdf repo --help`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Base Properties
+  - Name
+  - Url 
 
-### Advanced Configuration
+### **CDF.Repository.Created** Event 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Example: `./cdf repo created --name my-project --url http://github.com/salaboy/my-project`
 
-### Deployment
+### **CDF.Repository.Deleted** Event 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Example: `./cdf repo deleted --name my-project --url http://github.com/salaboy/my-project`
 
-### `yarn build` fails to minify
+## CDF Issue Events
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Use `cdf issue --help`
 
-## Frameworks that this app is using
+- Base Properties
+  - Id (required)
+  - Repository (required)
+  - Title 
+  - Author 
+  
+### **CDF.Issue.Created** Event
 
-https://github.com/nitin42/terminal-in-react
+Example: `./cdf issue created --id 7 --repository my-project --title "new issue" --author salaboy`
 
-https://www.npmjs.com/package/react-websocket
+### **CDF.Issue.Updated** Event
+
+Example: `./cdf issue updated --id 7 --repository my-project`
+
+### **CDF.Issue.CommentAdded** Event
+
+Example: `./cdf issue commented --id 7 --repository my-project --comment "new comment"`
+
+### **CDF.Issue.Closed** Event
+
+Example: `./cdf issue closed --id 7 --repository my-project`
+
+
+## Pull Request Events
+
+Use `cdf pr --help`
+
+- Base Properties    
+    - PR Id (required)
+    - PR Repository (required)
+    - Issue Id
+    - PR Title
+
+
+### **CDF.PR.Created** Event
+
+Example: `./cdf pr created --id 42 --repository my-project --author salaboy --title "fixing issue 7"`
+
+### **CDF.PR.Merged** Event
+
+Example: `./cdf pr merged --id 7 --repository my-project`
+
+### **CDF.PR.CommentAdded** Event
+
+Example: `./cdf pr commented --id 7 --repository my-project --comment "hi there from a pr comment"`
+
+
+## CDF Branch Events
+
+Use `cdf branch --help`
+
+- Base Properties
+  - Repository
+  - Name
+  - Url 
+
+### **CDF.Branch.Created** Event 
+
+Example: `./cdf branch created --name my-branch --repository my-project`
+
+### **CDF.Branch.Deleted** Event 
+
+Example: `./cdf branch deleted --name my-branch --repository my-project`
+
+## CDF Tag Events
+
+Use `cdf tag --help`
+
+- Base Properties
+  - Repository
+  - Name
+  - Url 
+
+### **CDF.Tag.Created** Event 
+
+Example: `./cdf tag created --name 0.0.1 --repository my-project`
+
+### **CDF.Tag.Deleted** Event 
+
+Example: `./cdf tag deleted --name 0.0.1 --repository my-project`
+
+
+## Pipeline Events
+
+Use `cdf pipeline --help`
+
+- Base Properties
+  - Id
+  - Name
+  - Repository
+
+### **CDF.Pipeline.Started** Event
+
+Example: `./cdf pipeline started --name my-service-pipeline --id UUID-abc-123 --repository my-project`
+
+### **CDF.Pipeline.Finished** Event
+
+Example: `./cdf pipeline finished --name my-service-pipeline --id <UUID> --repository my-project`
+
+### **CDF.Pipeline.Failed** Event
+
+Example: `./cdf pipeline failed --name my-service-pipeline --id <UUID> --repository my-project`
+
+
+## Artifact Events
+
+Use `cdf artifact --help`
+
+- Base Properties
+  - Name
+  - Version
+  - Source
+
+### **CDF.Artifact.TestStarted** Event
+
+### **CDF.Artifact.TestEnded** Event 
+    - Result
+
+### **CDF.Artifact.Built** Event 
+    - SHA 
+### **CDF.Artifact.VersionUpdated** Event
+    - OldVersion
+    - NewVersion
+### **CDF.Artifact.Released** Event
+    - URL
+    - Kind
+      - Library
+      - Service
+      
+      
+## Container Events
+- Base Properties
+  - Name
+  - Organization
+  - Tag
+  - Repository
+
+### **CDF.Container.Built** Event
+
+### **CDF.Container.Released** Event
+  
+
+## Environment Events
+- Base Properties
+  - URL
+  - Repository
+  - Name
+
+### **CDF.Environment.Created**
+
+### **CDF.Environment.Updated**
+
+### **CDF.Environment.ServicePromoted**
+
+## Service Events
+- Base Properties
+  - Name
+  - Url
+  - Version
+  - Environment URL
+
+### **CDF.Service.Deployed** Event
+
+### **CDF.Service.Upgraded** Event
+
+# Example Flow
+
+The following events exemplify a flow and it's different sections:
+- **Project Detected/Registered**
+  - (Optional it can be inferred) CDF.Project.Created `./cdf project created --name my-project`
+  - (Optional it can be inferred) CDF.Module.Created  `./cdf module created --name my-module --project my-project --repo http://github.com/salaboy/my-module`
+    - CDF.Pipeline.Started -> Main objective is to build, test and release an artifact. This pipeline is project scoped. `./cdf pipeline started --type module --module my-module --id 1`
+      - CDF.Artifact.Built `./cdf artifact built --module my-module --pipelineId 1 --id my-artifact-id`
+      - CDF.Artifact.TestsStarted `./cdf artifact test-started --module my-module --pipelineId 1 --id my-artifact-id`
+      - CDF.Artifact.TestsEnded  `./cdf artifact test-ended --module my-module --pipelineId 1 --id my-artifact-id`
+      - CDF.Artifact.Released  `./cdf artifact released --module my-module --pipelineId 1 --id my-artifact-id`
+    - CDF.Pipeline.Finished `./cdf pipeline finished --type module --module my-module --id 1`
+  
+- **Promotion To Environment via PR**
+  - CDF.Environment.PR.Created
+  - CDF.Pipeline.Started -> Main objective is to verify the new version of the artifact and deployment descriptors. This pipeline is environment scoped
+  - CDF.Pipeline.Finished
+  - CDF.EnvironmentPR.Merged -> To Main branch
+- **Environment Upgrade using Pipelines**
+  - CDF.Pipeline.Started -> Main objective is to apply the new version deployment descriptors
+  - CDF.Pipeline.Finished
+  - CDF.Application.Service.UP -> applications are scoped to environments
+  - CDF.Application.UP
+  
+# Metrics
+- **Lead Time**
+  - **From Source to Development Environment**
+  - **From Source to QA Environment**
+  - **From Source to Production Environment**
+- **Deployment Frequency**
+  - **To Development Environment**
+  - **To QA Environment**
+  - **To Production Environment**
+- **Change Fail Rate**
+  - **Pipeline Fail**
+  - **Deployment Fail**
+  - **Issues Reported by Users**
+- **Recovery Time**  
+
+# Visualization
+
+![dashboard](dashboard.png)
+
