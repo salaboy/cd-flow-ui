@@ -1,13 +1,24 @@
 // A DEFINIR
 $color-map: (
   white: (
-    base: #E5E8EE,
+    base: #E5E7EE,
     light-1: #ffffff
   ),
   black: (
     base: #242526,
-    dark: #000000
-  )
+    dark: #000000,
+    light: #6D7178,
+  ),
+  gray: (
+    base: #E5E7EE,
+    gray-1: #DADDE7,
+    gray-2: #D0D4E2
+  ),
+  main: (
+    base: #242526,
+    dark-1: #000000
+    dark-2: #000000
+  ),
 
 
 
