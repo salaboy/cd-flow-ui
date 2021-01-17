@@ -1,6 +1,5 @@
-import React, {
-    Component
-} from 'react';
+import React, {  Component } from 'react';
+import ProjectCard from '../../Components/ProjectCard/ProjectCard'
 
 
 export default class Metrics extends Component {
@@ -31,7 +30,8 @@ export default class Metrics extends Component {
 
         const metricsProjectsList = metrics.projectMetrics.map(project => {
 
-            return <tr key={project.projectName}>
+            return (
+              <tr key={project.projectName}>
                 <td style={{ whiteSpace: 'nowrap' }}>{project.projectName}</td>
 
                 <td>{
@@ -63,8 +63,8 @@ export default class Metrics extends Component {
                         </tbody>
                     </table>
                     </div>
-            })}</td>
-          </tr>
+                  })}</td>
+                </tr>)
                 });
 
         return (
@@ -72,6 +72,9 @@ export default class Metrics extends Component {
               <div className="container">
                 <div className="col col-twelve">
                   <h1>Dashboard</h1>
+                  <div className="section">
+                  <ProjectCard />
+
                   <table className="mt-4" border="1px" width="100%">
                       <thead>
                           <tr>
@@ -80,9 +83,12 @@ export default class Metrics extends Component {
                           </tr>
                       </thead>
                       <tbody>
-                          {metricsProjectsList}
+                        {metricsProjectsList}
                       </tbody>
                   </table>
+                  </div>
+
+
                 </div>
               </div>
           </div>

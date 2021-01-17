@@ -4,7 +4,7 @@ import "./MainNav.scss";
 
 export default class MainNav extends Component {
   render() {
-    const { active } = this.props;
+    const { } = this.props;
 
     let className = "main-nav";
 
