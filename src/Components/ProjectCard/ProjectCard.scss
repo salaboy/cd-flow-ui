@@ -2,9 +2,19 @@
 .project-card {
   background-color: color(white, light);
   border: 1px solid color(gray, gray-1);
-  padding: spacing(5);
+
   box-shadow: 0 8px 8px -8px rgba(45,42,60,0.20);
   border-radius: spacing(5);
-
-
+  margin-bottom: spacing(5);
+  .project-card__title {
+    padding: spacing(2,3) spacing(2,6);
+    border-bottom:  1px solid color(gray, gray-1);
+    h3 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .project-card__body {
+    padding: spacing(2,3) spacing(2,6);
+  }
 }

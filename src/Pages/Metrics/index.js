@@ -1,5 +1,7 @@
 import React, {  Component } from 'react';
 import ProjectCard from '../../Components/ProjectCard/ProjectCard'
+import ModuleBlock from '../../Components/ModuleBlock/ModuleBlock'
+import PipelineBlock from '../../Components/PipelineBlock/PipelineBlock'
 
 
 export default class Metrics extends Component {
@@ -67,26 +69,53 @@ export default class Metrics extends Component {
                 </tr>)
                 });
 
+        const metricsList = metrics.projectMetrics.map(project => {
+          return (
+            <ProjectCard title={project.projectName} key={project.projectName}>
+              {project.moduleMetrics.map(module => {
+                return (
+                  <ModuleBlock key={module.moduleName} title={module.moduleName}>
+                    {
+                      module.pipelineMetrics.map(pr => {
+                        return (
+                          <PipelineBlock key={pr.pipelineId} >
+                            <div>
+                              <strong>ID: </strong>{pr.pipelineId}
+                            </div>
+                            <div>
+                              <strong>Build: </strong>{pr.buildTime}
+                            </div>
+                            <div>
+                              <strong>Test: </strong>{pr.testsTime}
+                            </div>
+                            <div>
+                              <strong>Release: </strong>{pr.releaseTime}
+                            </div>
+                            <div>
+                              <strong>Pipeline: </strong>{pr.pipelineTime}
+                            </div>
+                          </PipelineBlock>
+                          )
+                        })
+                    }
+                  </ModuleBlock>
+                )
+              })}
+            </ProjectCard>
+          );
+
+        });
+
         return (
           <div className="section section--screen">
               <div className="container">
                 <div className="col col-twelve">
                   <h1>Dashboard</h1>
-                  <div className="section">
-                  <ProjectCard />
 
-                  <table className="mt-4" border="1px" width="100%">
-                      <thead>
-                          <tr>
-                              <th width="20%">Name</th>
-                              <th>Modules</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                        {metricsProjectsList}
-                      </tbody>
-                  </table>
-                  </div>
+                    {metricsList}
+
+
+                  
 
 
                 </div>

@@ -1,0 +1,10 @@
+@import "./src/Styles/_foundations.scss";
+.pipeline-block {
+  border-bottom: 1px solid color(gray, gray-1);
+  padding: spacing(2,3) 0 ;
+  display: flex;
+  font-size: font-size(s);
+  div {
+    min-width: 20%;
+  }
+}
