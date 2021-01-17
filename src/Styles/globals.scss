@@ -11,6 +11,13 @@ body {
 
 }
 
+a {
+  color: color(main);
+  text-decoration: none;
+  &:hover {
+    color: color(main, dark-1);
+  }
+}
 
 * {
   box-sizing: border-box;
