@@ -83,11 +83,10 @@ export default class Projects extends Component {
                 });
 
         return (
-          <div>
-
-            <div className="container">
-              <div className="col col-twelve">
-                <h2>Projects</h2>
+          <div className="section section--screen">
+              <div className="container">
+                <div className="col col-twelve">
+                  <h1>Projects</h1>
                 <table className="mt-4" border="1px" width="100%">
                     <thead>
                         <tr>

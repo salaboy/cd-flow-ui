@@ -68,10 +68,10 @@ export default class Metrics extends Component {
                 });
 
         return (
-          <div>
+          <div className="section section--screen">
               <div className="container">
                 <div className="col col-twelve">
-                  <h2>Metrics</h2>
+                  <h1>Dashboard</h1>
                   <table className="mt-4" border="1px" width="100%">
                       <thead>
                           <tr>
