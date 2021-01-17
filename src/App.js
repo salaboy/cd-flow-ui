@@ -1,5 +1,6 @@
 import './App.scss';
 import React from "react";
+import Home from './Pages/Home'
 import Projects from './Pages/Projects'
 import Metrics from './Pages/Metrics'
 import Project from './Pages/Project'
@@ -20,13 +21,13 @@ function handleData(data){
   var jsonContent = JSON.parse(data);
   if (jsonContent["specversion"] === "1.0") {
     const ce = new CloudEvent(jsonContent);
-    var data = "CloudEvent TYPE: " + ce.type + " - SOURCE: " + ce.source; 
+    var data = "CloudEvent TYPE: " + ce.type + " - SOURCE: " + ce.source;
     console.log(data);
   }else{
     console.log("Not a valid CE!");
     console.log(jsonContent);
   }
-  
+
 }
 
 
@@ -70,7 +71,7 @@ export default function App() {
             <Metrics />
           </Route>
           <Route path="/project/:projectId" component={Project}>
-          
+
           </Route>
           <Route path="/environments">
             <Environments />
@@ -85,13 +86,6 @@ export default function App() {
 }
 
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
 
 
 

@@ -11,7 +11,7 @@ h5,
 .h4,
 .h5 {
   font-family: font-family(display);
-  font-weight: 300;
+  font-weight: 600;
   margin-top: 0;
   padding-top: 0;
   position: relative;
@@ -28,19 +28,15 @@ h1,
   line-height: heading-line-height(h1);
   margin: heading-line-height(h1) 0 heading-line-height(h1) / 2;
   letter-spacing: 0em;
-  font-weight: 300;
-  max-width: 900px;
+  font-weight: 600;
+  max-width: 600px;
   &:first-child {
     margin-top: 0;
   }
 
   //Mobile
   @media only screen and (max-width: breakpoint(tabletSD)) {
-    font-size: heading-font-size(h2);
-    line-height: heading-line-height(h2);
-    margin: heading-line-height(h2) 0 heading-line-height(h2) / 2;
-    letter-spacing: -0.01em;
-    max-width: 780px;
+
   }
 }
 
@@ -50,17 +46,14 @@ h2,
   line-height: heading-line-height(h2);
   margin: heading-line-height(h2) 0 heading-line-height(h2) / 2;
   letter-spacing:0em;
-  font-weight: 300;
-  max-width: 780px;
+  font-weight: 600;
+  max-width: 600px;
   &:first-child {
     margin-top: 0;
   }
   //Mobile
   @media only screen and (max-width: breakpoint(tabletSD)) {
-    font-size: heading-font-size(h3);
-    line-height: heading-line-height(h3);
-    margin: heading-line-height(h3) 0 heading-line-height(h3) / 2;
-    max-width: 720px;
+
   }
 }
 
@@ -69,8 +62,74 @@ h3,
   font-size: heading-font-size(h3);
   line-height: heading-line-height(h3);
   margin: heading-line-height(h3) 0 heading-line-height(h3) / 2;
-  font-weight: 500;
-  max-width: 720px;
+  font-weight: 600;
+  max-width: 600px;
+  &:first-child {
+    margin-top: 0;
+  }
+  & + h1,
+  & + h2,
+  & + .h1,
+  & + .h2 {
+    margin-top: 0;
+  }
+  //Mobile
+  @media only screen and (max-width: breakpoint(tabletSD)) {
+
+  }
+}
+
+h4,
+.h4 {
+  font-size: heading-font-size(h4);
+  line-height: heading-line-height(h4);
+  margin: heading-line-height(h4) 0 heading-line-height(h4) / 2;
+  font-weight: 600;
+  max-width: 600px;
+  &:first-child {
+    margin-top: 0;
+  }
+  & + h1,
+  & + h2,
+  & + .h1,
+  & + .h2 {
+    margin-top: 0;
+  }
+  //Mobile
+  @media only screen and (max-width: breakpoint(tabletSD)) {
+
+  }
+}
+
+h5,
+.h5 {
+  font-size: heading-font-size(h5);
+  line-height: heading-line-height(h5);
+  margin: heading-line-height(h5) 0 heading-line-height(h5) / 2;
+  font-weight: 600;
+  max-width: 480px;
+  &:first-child {
+    margin-top: 0;
+  }
+  & + h1,
+  & + h2,
+  & + .h1,
+  & + .h2 {
+    margin-top: 0;
+  }
+  //Mobile
+  @media only screen and (max-width: breakpoint(tabletSD)) {
+
+  }
+}
+h6,
+.h6 {
+  font-size: heading-font-size(h6);
+  line-height: heading-line-height(h6);
+  margin: heading-line-height(h6) 0 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  max-width: 400px;
   &:first-child {
     margin-top: 0;
   }

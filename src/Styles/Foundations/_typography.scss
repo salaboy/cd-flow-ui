@@ -8,34 +8,37 @@ $font-family-map: (
 );
 
 $font-size-map: (
-  base: rem(24px),
-  s: rem(18px),
-  xs: rem(14px),
-  mb: rem(36px),
-  b: rem(72px),
+  base: rem(15px),
+  s: rem(13.3px),
+  xs: rem(11px)
 
 );
 
 $line-height-map: (
-  base: rem(36px),
-  s: rem(24px),
-  xs: rem(18px),
-  mb: rem(42px),
-  b: rem(72px),
+  base: rem(24px),
+  s: rem(20px),
+  xs: rem(16px)
 
 );
 
 $heading-font-size-map: (
-  h1: rem(120px),
-  h2: rem(72px),
-  h3: rem(28px)
+  h1: rem(30px),
+  h2: rem(21px),
+  h3: rem(17px),
+  h4: rem(15px),
+  h5: rem(13.3px),
+  h6: rem(11px)
 
 );
 
 $heading-line-height-map: (
-  h1: rem(120px),
-  h2: rem(72px),
-  h3: rem(32px)
+  h1: rem(36px),
+  h2: rem(28px),
+  h3: rem(24px),
+  h4: rem(20px),
+  h5: rem(16px),
+  h6: rem(16px)
+
 
 );
 
