@@ -9,6 +9,7 @@ $spacing-map: (
   5: $block * 3,
   6: $block * 4
 
+
 );
 
 @function spacing($spacing: 6, $multiply-value: 1) {

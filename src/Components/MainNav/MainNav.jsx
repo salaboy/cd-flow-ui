@@ -1,7 +1,5 @@
 import { Component } from "react";
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./MainNav.scss";
 
 export default class MainNav extends Component {

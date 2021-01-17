@@ -19,7 +19,7 @@ export default class Projects extends Component {
             .then(response => response.json())
             .then(data => this.setState({ projects: data, isLoading: false }));
 
-      
+
     }
 
     render() {
@@ -69,7 +69,7 @@ export default class Projects extends Component {
 
                                                             })
                                                             }
-                                                         </tbody>   
+                                                         </tbody>
                                                 </table>
                                             </td>
                                         </tr>
@@ -85,20 +85,23 @@ export default class Projects extends Component {
         return (
           <div>
 
-                      
-                        <h3>Projects</h3>
-                        <table className="mt-4" border="1px" width="100%">
-                            <thead>
-                                <tr>
-                                    <th width="20%">Name</th>
-                                    <th>Modules</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {projectsList}
-                            </tbody>
-                        </table>
-                    </div>
+            <div className="container">
+              <div className="col col-twelve">
+                <h2>Projects</h2>
+                <table className="mt-4" border="1px" width="100%">
+                    <thead>
+                        <tr>
+                            <th width="20%">Name</th>
+                            <th>Modules</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {projectsList}
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         );
       }
 }

@@ -1,4 +1,25 @@
 @import "./src/Styles/_foundations.scss";
 .main-nav {
   background-color: color(white, light);
+  height: spacing(2,16);
+  border-bottom: 1px solid color(gray, gray-1);
+  padding: 0 spacing(5);
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      display: inline-block;
+      font-size: heading-font-size(h4);
+      line-height: spacing(2,16);
+      font-weight: 600;
+      padding: 0 spacing(5);
+      a {
+        color: color(black);
+        &:hover {
+          color: color(main);
+        }
+      }
+    }
+  }
 }
