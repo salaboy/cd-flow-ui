@@ -1,5 +1,6 @@
 import './App.scss';
 import React from "react";
+import MainNav from './Components/MainNav/MainNav'
 import Home from './Pages/Home'
 import Projects from './Pages/Projects'
 import Metrics from './Pages/Metrics'
@@ -35,22 +36,8 @@ export default function App() {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/projects">Projects</Link>
-          </li>
-          <li>
-            <Link to="/terminal">Terminal</Link>
-          </li>
-          <li>
-            <Link to="/environments">Environments</Link>
-          </li>
-        </ul>
 
-        <hr />
+        <MainNav />
 
         {/*
           A <Switch> looks through all its children <Route>
