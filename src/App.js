@@ -35,38 +35,42 @@ function handleData(data){
 export default function App() {
   return (
     <Router>
-      <div>
+      <div className="app">
+        <div className="app__content">
+          <MainNav />
 
-        <MainNav />
+          {/*
+            A <Switch> looks through all its children <Route>
+            elements and renders the first one whose path
+            matches the current URL. Use a <Switch> any time
+            you have multiple routes, but you want only one
+            of them to render at a time
+          */}
+          {/* <Websocket url='ws://localhost:8080/ws?sessionId=123' */}
+          <Websocket url='ws://34.91.35.40.xip.io/ws?sessionId=123'
+                onMessage={handleData.bind(this)}/>
+          <Switch>
+            <Route exact path="/">
+              <Metrics />
+            </Route>
+            <Route path="/projects">
+              <Projects />
 
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
-        {/* <Websocket url='ws://localhost:8080/ws?sessionId=123' */}
-        <Websocket url='ws://34.91.35.40.xip.io/ws?sessionId=123'
-              onMessage={handleData.bind(this)}/>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-            <Metrics />
-          </Route>
-          <Route path="/project/:projectId" component={Project}>
+            </Route>
+            <Route path="/project/:projectId" component={Project}>
 
-          </Route>
-          <Route path="/environments">
-            <Environments />
-          </Route>
-          <Route path="/terminal">
-            <MyTerminal />
-          </Route>
-        </Switch>
+            </Route>
+            <Route path="/environments">
+              <Environments />
+            </Route>
+            <Route path="/terminal">
+              <MyTerminal />
+            </Route>
+          </Switch>
+        </div>
+        <div className="app__terminal">
+          Terminal
+        </div>
       </div>
     </Router>
   );
