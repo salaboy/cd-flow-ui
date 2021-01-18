@@ -78,23 +78,15 @@ export default class Metrics extends Component {
                     {
                       module.pipelineMetrics.map(pr => {
                         return (
-                          <PipelineBlock key={pr.pipelineId} >
-                            <div>
-                              <strong>ID: </strong>{pr.pipelineId}
-                            </div>
-                            <div>
-                              <strong>Build: </strong>{pr.buildTime}
-                            </div>
-                            <div>
-                              <strong>Test: </strong>{pr.testsTime}
-                            </div>
-                            <div>
-                              <strong>Release: </strong>{pr.releaseTime}
-                            </div>
-                            <div>
-                              <strong>Pipeline: </strong>{pr.pipelineTime}
-                            </div>
-                          </PipelineBlock>
+                          <PipelineBlock
+                            key={pr.pipelineId}
+                            id={pr.pipelineId}
+                            build={pr.buildTime}
+                            test={pr.testsTime}
+                            release={pr.releaseTime}
+                            pipeline={pr.pipelineTime}
+                          />
+
                           )
                         })
                     }
@@ -111,13 +103,7 @@ export default class Metrics extends Component {
               <div className="container">
                 <div className="col col-twelve">
                   <h1>Projects Metrics</h1>
-
-                    {metricsList}
-
-
-
-
-
+                  {metricsList}
                 </div>
               </div>
           </div>

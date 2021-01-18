@@ -4,6 +4,9 @@
   padding: spacing(2,3) 0 ;
   display: flex;
   font-size: font-size(s);
+  &:last-child {
+    border-bottom: 0;
+  }
   div {
     min-width: 20%;
   }
