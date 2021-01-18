@@ -11,7 +11,7 @@ export default class ProjectCard extends Component {
     return (
       <div className={className}>
         <div className="project-card__title">
-          <h3>{title}</h3>
+          <h2>{title}</h2>
         </div>
         <div className="project-card__body">
           {children}

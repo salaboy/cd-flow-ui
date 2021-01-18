@@ -1,10 +1,15 @@
 @import "./src/Styles/_foundations.scss";
 .module-block {
-
-  border-bottom: 1px solid color(gray, gray-1);
+  border: 1px solid color(gray, gray-1);
+  padding: spacing(4,2);
+    border-radius: spacing(1);
   .module-block__title {
-    padding: spacing(2) 0 0;
-    h3 {
+
+    h4 {
+      margin: 0;
+      padding: 0;
+    }
+    p {
       margin: 0;
       padding: 0;
     }
@@ -12,7 +17,5 @@
   .module-block__body {
     padding: 0 0 spacing(2,3) 0;
   }
-  &:last-child {
-      border-bottom: 0;
-  }
+
 }

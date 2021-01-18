@@ -3,20 +3,19 @@
   background-color: color(white, light);
 
 
-  box-shadow: 0 8px 24px -8px rgba(45,42,60,0.10);
+  box-shadow: 0 8px 8px -8px rgba(45,42,60,0.20);
   border-radius: spacing(2);
-  margin-bottom: spacing(5,2);
+  margin-bottom: spacing(2,4);
   .project-card__title {
-    padding: spacing(2,3) spacing(2,6);
-    background-color: color(gray, gray-2);
+    padding: spacing(2,6) spacing(2,4) 0;
     border-radius: spacing(2) spacing(2) 0 0 ;
-    border-bottom:  1px solid color(gray, gray-1);
+
     h3 {
       margin: 0;
       padding: 0;
     }
   }
   .project-card__body {
-    padding: spacing(2,3) spacing(2,6);
+    padding: 0 spacing(2,4) spacing(2,4);
   }
 }

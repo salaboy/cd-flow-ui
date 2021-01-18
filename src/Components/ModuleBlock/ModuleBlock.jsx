@@ -11,7 +11,8 @@ export default class ModuleBlock extends Component {
     return (
       <div className={className}>
         <div className="module-block__title">
-          <h4>{title}</h4>
+          <h4>{title} <span>Passed</span></h4>
+          <p className="p p-xs">salaboy/test-spring-cloud-connectors</p>
         </div>
         <div className="module-block__body">
           {children}

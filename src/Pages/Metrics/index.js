@@ -110,12 +110,12 @@ export default class Metrics extends Component {
           <div className="section section--screen">
               <div className="container">
                 <div className="col col-twelve">
-                  <h1>Dashboard</h1>
+                  <h1>Projects Metrics</h1>
 
                     {metricsList}
 
 
-                  
+
 
 
                 </div>

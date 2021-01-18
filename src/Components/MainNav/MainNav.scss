@@ -3,7 +3,13 @@
   background-color: color(white, light);
   height: spacing(2,16);
   border-bottom: 1px solid color(gray, gray-2);
+  box-shadow: 0 8px 8px -8px rgba(45,42,60,0.20);
   padding: 0 spacing(5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   ul {
     margin: 0;
     padding: 0;

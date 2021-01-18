@@ -12,14 +12,23 @@
   }
   .app__terminal {
     height: spacing(2,8);
-    background-color: color(gray, gray-2);
+
     font-size: font-size(s);
-    padding: spacing(4);
+      background-color: color(gray, gray-2);
     transition: transition();
     z-index: 10;
     .app__terminal__header {
       cursor: pointer;
-      border-bottom: 1px solid color(gray, gray-1);
+      padding: spacing(4);
+      h5 {
+        margin-bottom: 0;
+      }
+
+
+    }
+    .app__terminal__body {
+      border-top: 1px solid color(black, light);
+      padding: spacing(4);
     }
   }
   &.app-terminal {
@@ -28,6 +37,8 @@
     }
     .app__terminal {
       height: 30vh;
+      background-color: color(black);
+      color: color(gray, gray-2);
     }
   }
 }
