@@ -1,0 +1,14 @@
+@import "./src/Styles/_foundations.scss";
+.icon {
+  display: inline-block;
+  background-color: color(gray, gray-1);
+  border-radius: spacing(1);
+  width: spacing(2,4);
+  position: relative;
+  height: spacing(2,4);
+  vertical-align: top;
+  margin-right: spacing(2);
+  &.icon--circle {
+    border-radius: spacing(2,2);
+  }
+}

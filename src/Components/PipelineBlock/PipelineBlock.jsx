@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import Icon from '../Icon/Icon'
 
 import "./PipelineBlock.scss";
 
@@ -16,17 +16,34 @@ export default class PipelineBlock extends Component {
         </div>
         <div className="pipeline-block__stages">
           <div className="pipeline-block__stages__stage">
-            Build {build}
+            <div className="stage__title">
+              <Icon circle /> Build
+            </div>
+            <div className="stage__graph">
+               {build}
+            </div>
           </div>
           <div className="pipeline-block__stages__stage">
-            Test {test}
+            <div className="stage__title">
+              <Icon circle /> Test
+            </div>
+            <div className="stage__graph">
+               {test}
+            </div>
+
           </div>
           <div className="pipeline-block__stages__stage">
-            Release {release}
+            <div className="stage__title">
+              <Icon circle /> Release
+            </div>
+            <div className="stage__graph">
+               {release}
+            </div>
+
           </div>
         </div>
         <div className="pipeline-block__duration">
-          Duration: {pipeline}
+          <Icon /> Duration: {pipeline}
         </div>
 
       </div>

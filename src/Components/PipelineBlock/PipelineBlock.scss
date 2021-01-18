@@ -10,7 +10,7 @@
 
   .pipeline-block__id {
     padding: spacing(2) spacing(2,4) ;
-    width: 100px;
+    width: 80px;
   }
   .pipeline-block__stages {
     display: flex;
@@ -18,6 +18,15 @@
     width: 70%;
     .pipeline-block__stages__stage {
       width: 33%;
+      display: flex;
+      .stage__title {
+        padding-right: spacing(2,4);
+        white-space: nowrap;
+      }
+      .stage__graph {
+        width: 100%;
+        padding-right: spacing(2,8);
+      }
     }
   }
   .pipeline-block__duration {
