@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Icon from '../Icon/Icon'
+import TimeBarGraph from '../DataViz/TimeBarGraph/TimeBarGraph'
 
 import "./PipelineBlock.scss";
 
@@ -20,7 +21,7 @@ export default class PipelineBlock extends Component {
               <Icon circle /> Build
             </div>
             <div className="stage__graph">
-               {build}
+              <TimeBarGraph data={build}/>
             </div>
           </div>
           <div className="pipeline-block__stages__stage">
@@ -28,7 +29,7 @@ export default class PipelineBlock extends Component {
               <Icon circle /> Test
             </div>
             <div className="stage__graph">
-               {test}
+               <TimeBarGraph data={test}/>
             </div>
 
           </div>
@@ -37,7 +38,7 @@ export default class PipelineBlock extends Component {
               <Icon circle /> Release
             </div>
             <div className="stage__graph">
-               {release}
+               <TimeBarGraph data={release}/>
             </div>
 
           </div>
