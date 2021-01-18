@@ -7,7 +7,22 @@
   &:last-child {
     border-bottom: 0;
   }
-  div {
-    min-width: 20%;
+
+  .pipeline-block__id {
+    padding: spacing(2) spacing(2,4) ;
+    width: 100px;
+  }
+  .pipeline-block__stages {
+    display: flex;
+    padding: spacing(2) spacing(2,4) ;
+    width: 70%;
+    .pipeline-block__stages__stage {
+      width: 33%;
+    }
+  }
+  .pipeline-block__duration {
+    display: flex;
+    padding: spacing(2) spacing(2,4) ;
+    width: 30%;
   }
 }
