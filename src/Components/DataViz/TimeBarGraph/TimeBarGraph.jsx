@@ -19,12 +19,18 @@ export default class TimeBarGraph extends Component {
 
     var timeWidth = (time/max)*100;
     var averageWidth = ((average/max)*100) - timeWidth;
-
+    var averageLeft;
+    if(status == "positive"){
+      averageLeft = "calc(" + timeWidth + "% + 1px)"
+    } else {
+      averageLeft = "calc(" + (timeWidth - averageWidth)  + "% )"
+    }
     const timeStyle = {
       width: timeWidth + "%"
     };
     const averageStyle = {
-      width: averageWidth + "%"
+      width: averageWidth + "%",
+      left: averageLeft
     };
 
     let className = "time-bar-graph" +
