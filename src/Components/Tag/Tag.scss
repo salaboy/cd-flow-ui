@@ -1,0 +1,16 @@
+@import "./src/Styles/_foundations.scss";
+.tag {
+  display: inline-block;
+  background-color: color(gray, gray-1);
+  border-radius: spacing(1);
+  padding: 0 spacing(3) spacing(1);
+  position: relative;
+  top: 0 - spacing(1);
+  line-height: 1;
+  h6{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+  }
+}

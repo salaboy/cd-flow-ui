@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+
 import "./PipelineBlock.scss";
 
 export default class PipelineBlock extends Component {
