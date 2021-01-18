@@ -27,7 +27,7 @@ h1,
   font-size: heading-font-size(h1);
   line-height: heading-line-height(h1);
   margin: heading-line-height(h1) 0 heading-line-height(h1) / 2;
-  letter-spacing: 0em;
+  letter-spacing: -0.021em;
   font-weight: 600;
   max-width: 600px;
   &:first-child {
@@ -45,7 +45,7 @@ h2,
   font-size: heading-font-size(h2);
   line-height: heading-line-height(h2);
   margin: heading-line-height(h2) 0 heading-line-height(h2) / 2;
-  letter-spacing:0em;
+  letter-spacing: -0.017em;
   font-weight: 600;
   max-width: 600px;
   &:first-child {
@@ -64,6 +64,7 @@ h3,
   margin: heading-line-height(h3) 0 heading-line-height(h3) / 2;
   font-weight: 600;
   max-width: 600px;
+  letter-spacing: -0.013em;
   &:first-child {
     margin-top: 0;
   }
@@ -86,6 +87,7 @@ h4,
   margin: heading-line-height(h4) 0 heading-line-height(h4) / 2;
   font-weight: 600;
   max-width: 600px;
+  letter-spacing: -0.009em;
   &:first-child {
     margin-top: 0;
   }
@@ -108,6 +110,7 @@ h5,
   margin: heading-line-height(h5) 0 heading-line-height(h5) / 2;
   font-weight: 600;
   max-width: 480px;
+  letter-spacing: -0.0025em;
   &:first-child {
     margin-top: 0;
   }
@@ -129,6 +132,7 @@ h6,
   margin: heading-line-height(h6) 0 0;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.005em;
   max-width: 400px;
   &:first-child {
     margin-top: 0;

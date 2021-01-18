@@ -12,6 +12,7 @@ p {
   padding-bottom: 0;
   max-width: 800px;
   position: relative;
+  letter-spacing: -0.009em;
   //Mobile
   @media only screen and (max-width: breakpoint(tabletSD)) {
 
@@ -20,6 +21,7 @@ p {
     font-size: font-size(b);
     line-height: line-height(b);
     max-width: 960px;
+    letter-spacing: -0.014em;
     //Mobile
     @media only screen and (max-width: breakpoint(tabletSD)) {
 
@@ -30,6 +32,7 @@ p {
     font-size: font-size(s);
     line-height: line-height(s);
     max-width: 480px;
+    letter-spacing: -0.0025em;
     //Mobile
     @media only screen and (max-width: breakpoint(tabletSD)) {
 
@@ -39,6 +42,7 @@ p {
     font-size: font-size(xs);
     line-height: line-height(xs);
     max-width: 400px;
+    letter-spacing: 0.005em;
     //Mobile
     @media only screen and (max-width: breakpoint(tabletSD)) {
 

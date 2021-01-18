@@ -1,13 +1,15 @@
 @import "./src/Styles/_foundations.scss";
 .project-card {
   background-color: color(white, light);
-  border: 1px solid color(gray, gray-1);
 
-  box-shadow: 0 8px 8px -8px rgba(45,42,60,0.20);
-  border-radius: spacing(5);
-  margin-bottom: spacing(5);
+
+  box-shadow: 0 8px 24px -8px rgba(45,42,60,0.10);
+  border-radius: spacing(2);
+  margin-bottom: spacing(5,2);
   .project-card__title {
     padding: spacing(2,3) spacing(2,6);
+    background-color: color(gray, gray-2);
+    border-radius: spacing(2) spacing(2) 0 0 ;
     border-bottom:  1px solid color(gray, gray-1);
     h3 {
       margin: 0;
