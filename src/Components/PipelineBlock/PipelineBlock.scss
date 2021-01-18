@@ -22,10 +22,12 @@
       .stage__title {
         padding-right: spacing(2,4);
         white-space: nowrap;
+
       }
       .stage__graph {
         width: 100%;
-        padding-right: spacing(2,8);
+        min-width: 200px;
+        padding-right: spacing(2,12);
       }
     }
   }
