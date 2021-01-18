@@ -21,7 +21,7 @@ export default class PipelineBlock extends Component {
               <Icon circle /> Build
             </div>
             <div className="stage__graph">
-              <TimeBarGraph data={build}/>
+              <TimeBarGraph data={build} time="60" max="120" average="90" />
             </div>
           </div>
           <div className="pipeline-block__stages__stage">
@@ -29,7 +29,7 @@ export default class PipelineBlock extends Component {
               <Icon circle /> Test
             </div>
             <div className="stage__graph">
-               <TimeBarGraph data={test}/>
+               <TimeBarGraph data={test} time="90" max="120" average="100"/>
             </div>
 
           </div>

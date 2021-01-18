@@ -10,4 +10,34 @@
   width: 100%;
   font-size: font-size(xs);
   line-height: spacing(2,4);
+  .time-bar-graph__time {
+    background-color: color(black);
+    display: inline-block;
+    height: spacing(2,4);
+    z-index: 10;
+    position: absolute;
+  }
+  .time-bar-graph__average {
+    background-color: color(black);
+    opacity: .25;
+    display: inline-block;
+    height: spacing(2,4);
+    z-index: 20;
+      position: absolute;
+  }
+  &.time-bar-graph--positive {
+    .time-bar-graph__time {
+      background-color: color(green);
+    }
+  }
+  &.time-bar-graph--negative {
+    .time-bar-graph__time {
+      background-color: color(red);
+    }
+  }
+  &.time-bar-graph--neutral {
+    .time-bar-graph__time {
+      background-color: color(gray);
+    }
+  }
 }
