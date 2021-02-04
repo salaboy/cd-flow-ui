@@ -49,7 +49,7 @@ export default class Projects extends Component {
                                 {
                                     module.pipelineRuns.map(pr => {
                                         return <tr key={pr.id}>
-                                            <td>{pr.id}</td>
+                                            <td>{pr.pipelineId}</td>
                                             <td>{pr.status}</td>
                                             <td>
                                                     <h3>Artifact Events</h3>
@@ -63,7 +63,7 @@ export default class Projects extends Component {
                                                         <tbody>
                                                             {pr.artifactEvents.map(ae => {
                                                                 return <tr key={ae.id}>
-                                                                    <td>{ae.id}</td>
+                                                                    <td>{ae.artifactId}</td>
                                                                     <td>{ae.type}</td>
                                                                 </tr>
 
