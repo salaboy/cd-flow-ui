@@ -73,7 +73,7 @@ export default class App extends Component {
               of them to render at a time
             */}
             {/* <Websocket url='ws://localhost:8080/ws?sessionId=123' */}
-            <Websocket url='ws://34.91.35.40/ws?sessionId=123'
+            <Websocket url='ws://ui.35.204.61.61.xip.io/ws?sessionId=123'
                   onMessage={handleData.bind(this)}/>
             <Switch>
               <Route exact path="/">
