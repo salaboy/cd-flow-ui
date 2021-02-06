@@ -39,6 +39,8 @@ spec:
         env:
         - name: VERSION
           value: {{ .Chart.Version }}
+        - name: DANGEROUSLY_DISABLE_HOST_CHECK
+          value: "true"  
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
           value: {{ quote $pval }}
