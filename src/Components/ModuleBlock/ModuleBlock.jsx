@@ -5,15 +5,15 @@ import "./ModuleBlock.scss";
 
 export default class ModuleBlock extends Component {
   render() {
-    const { children, title } = this.props;
+    const { children, title, repoUrl } = this.props;
 
     let className = "module-block";
 
     return (
       <div className={className}>
         <div className="module-block__title">
-          <h4>{title} <Tag type="passed">Passed</Tag></h4>
-          <p className="p p-xs">salaboy/test-spring-cloud-connectors</p>
+          <h4>{title} <Tag type="passed">OK</Tag></h4>
+          <p className="p p-xs">{repoUrl}</p>
         </div>
         <div className="module-block__body">
           {children}

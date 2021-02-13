@@ -19,8 +19,7 @@ export default class Metrics extends Component {
         fetch('api/metrics/')
             .then(response => response.json())
             .then(data => this.setState({ metrics: data, isLoading: false }));
-
-
+        
     }
 
     render() {
@@ -37,7 +36,7 @@ export default class Metrics extends Component {
             <ProjectCard title={project.projectName} key={project.projectName}>
               {project.moduleMetrics.map(module => {
                 return (
-                  <ModuleBlock key={module.moduleName} title={module.moduleName}>
+                  <ModuleBlock key={module.moduleName} title={module.moduleName} repoUrl={module.repoUrl}>
                     {
                       module.pipelineMetrics.map(pr => {
                         return (
