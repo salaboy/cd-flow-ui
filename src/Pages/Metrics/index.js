@@ -16,7 +16,7 @@ export default class Metrics extends Component {
     componentDidMount() {
         this.setState({ isLoading: true });
 
-        fetch('api/metrics/')
+        fetch('api/metrics/projects')
             .then(response => response.json())
             .then(data => this.setState({ metrics: data, isLoading: false }));
         
